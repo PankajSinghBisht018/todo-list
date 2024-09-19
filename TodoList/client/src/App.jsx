@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResetPassword from './components/ResetPassword';
 import ForgotPassword from './components/ForgotPassword';
+import Footer from './components/Footer';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
@@ -55,6 +56,7 @@ function App() {
                     <>
                         <Navbar toggleCompleted={toggleCompleted} onLogout={handleLogout} showCompleted={showCompleted} />
                         <Todo todos={todos} showCompleted={showCompleted} fetchTodos={fetchTodos} />
+                         <Footer />
                     </>
                 ) : (
                     <Navigate to="/login" />
@@ -63,6 +65,7 @@ function App() {
                 <Route path="/password-reset" element={<ForgotPassword />} />
                 <Route path="/resetpassword/:token" element={<ResetPassword />} />
             </Routes>
+           
         </>
     );
 }
